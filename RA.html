@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RA</title>
+    <link rel="stylesheet" href="RA_styles.css">
+</head>
+<body>
+
+<header>Relatório de Análise e Decisão de Certificação de Produtos</header>
+
+<div style="text-align: center; margin: 20px;">
+    <button id="toggle-all" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Agrupar/Desagrupar Tudo</button>
+</div>
+
+<div class="section" id="processo">
+    <div class="section-header">Processo</div>
+    <div class="section-content">
+        <!-- Conteúdo do Processo -->
+    </div>
+</div>
+
+<div class="section" id="documentacao">
+    <div class="section-header">Documentação</div>
+    <div class="section-content">
+        <!-- Conteúdo da Documentação -->
+    </div>
+</div>
+
+<div class="section" id="planejamento">
+    <div class="section-header">Planejamento</div>
+    <div class="section-content">
+        <!-- Conteúdo do Planejamento -->
+    </div>
+</div>
+
+<div class="section" id="sac-sgq">
+    <div class="section-header">SAC/SGQ do solicitante</div>
+    <div class="section-content">
+        <!-- Conteúdo do SAC/SGQ do solicitante -->
+    </div>
+</div>
+
+<div class="section" id="sistema-gestao">
+    <div class="section-header">Sistema de gestão e processo produtivo do fabricante</div>
+    <div class="section-content">
+        <!-- Conteúdo do Sistema de gestão e processo produtivo do fabricante -->
+    </div>
+</div>
+
+<div class="section" id="ensaios">
+    <div class="section-header">Ensaios</div>
+    <div class="section-content">
+        <!-- Conteúdo dos Ensaios -->
+    </div>
+</div>
+
+<div class="section" id="recomendacao">
+    <div class="section-header">Recomendação</div>
+    <div class="section-content">
+        <!-- Conteúdo da Recomendação -->
+    </div>
+</div>
+
+<div class="section" id="decisao">
+    <div class="section-header">Decisão</div>
+    <div class="section-content">
+        <!-- Conteúdo da Decisão -->
+    </div>
+</div>
+
+<script>
+    const toggleAllButton = document.getElementById('toggle-all');
+    const sections = document.querySelectorAll('.section');
+
+    toggleAllButton.addEventListener('click', () => {
+        const isExpanded = [...sections].every(section => section.classList.contains('expanded'));
+        sections.forEach(section => {
+            if (isExpanded) {
+                section.classList.remove('expanded');
+            } else {
+                section.classList.add('expanded');
+            }
+        });
+    });
+
+    document.querySelectorAll('.section-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const section = header.parentElement;
+            section.classList.toggle('expanded');
+        });
+    });
+</script>
+
+</body>
+</html>
