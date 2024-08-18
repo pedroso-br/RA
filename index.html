@@ -9,6 +9,10 @@
 <body>
 
 <header>Relatório de Análise e Decisão de Certificação de Produtos</header>
+<div style="text-align: center; margin: 10px;">
+    <label for="compass-id" style="font-size: 12px;">Compass ID: </label>
+    <input type="text" id="compass-id" name="compass-id" pattern="P\d{0,9}" placeholder="P123456789" style="font-size: 12px;">
+</div>
 
 <div style="text-align: center; margin: 20px;">
     <button id="toggle-all" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Agrupar/Desagrupar Tudo</button>
@@ -17,7 +21,33 @@
 <div class="section" id="processo">
     <div class="section-header">Processo</div>
     <div class="section-content">
-        <!-- Conteúdo do Processo -->
+        <div class="subsection" id="solicitante">
+            <div class="subsection-header">Solicitante</div>
+            <div class="subsection-content">
+                <label for="razao-social-solicitante">Razão Social:</label>
+                <input type="text" id="razao-social-solicitante" name="razao-social-solicitante"><br>
+                <label for="endereco-solicitante">Endereço:</label>
+                <input type="text" id="endereco-solicitante" name="endereco-solicitante"><br>
+                <label for="cnpj-solicitante">CNPJ:</label>
+                <input type="text" id="cnpj-solicitante" name="cnpj-solicitante"><br>
+            </div>
+        </div>
+
+        <div class="subsection" id="fabricante">
+            <div class="subsection-header">Fabricante</div>
+            <div class="subsection-content">
+                <label for="razao-social-fabricante">Razão Social:</label>
+                <input type="text" id="razao-social-fabricante" name="razao-social-fabricante">
+                <label for="tipo-fabricante" style="margin-left: 10px;">Tipo:</label>
+                <select id="tipo-fabricante" name="tipo-fabricante">
+                    <option value="fabricante">Fabricante</option>
+                    <option value="fabricante-legal">Fabricante Legal</option>
+                    <option value="fabricante-contratado">Fabricante Contratado</option>
+                </select><br>
+                <button id="add-fabricante" style="margin-top: 10px;">Adicionar Fabricante</button>
+                <button id="remove-fabricante" style="margin-top: 10px;">Remover Fabricante</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -90,6 +120,21 @@
             const section = header.parentElement;
             section.classList.toggle('expanded');
         });
+    });
+
+    document.querySelectorAll('.subsection-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const subsection = header.parentElement;
+            subsection.classList.toggle('expanded');
+        });
+    });
+
+    document.getElementById('add-fabricante').addEventListener('click', () => {
+        // Lógica para adicionar campos de fabricante
+    });
+
+    document.getElementById('remove-fabricante').addEventListener('click', () => {
+        // Lógica para remover campos de fabricante
     });
 </script>
 
